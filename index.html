@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Matrix Calc</title>
+</head>
+<body>
+    <section class="page">
+        <div class="toggle-btn">≡ Calculator</div>
+        <h5 id="+" class="big-header used">Penjumlahan</h5>
+        <h5 id="-" class="big-header">Pengurangan</h5>
+        <h5 id="x" class="big-header">Perkalian</h5>
+        <h5 id="D" class="big-header">Determinan</h5>
+        <img src="assets/bgr-calc-removebg2.png">
+        <div class="card">
+            <nav>
+                <div class="operator-box selected">
+                    <p style="font-size: 32px;">+</p>
+                </div>
+                <div class="operator-box">
+                    <p style="font-size: 32px;">-</p>
+                </div>
+                <div class="operator-box">
+                    <p>x</p>
+                </div>
+                <div class="operator-box">
+                    <p>D</p>
+                </div>
+                <div class="operator-get"></div>
+                <div class="operator-get ghost-circle"></div>
+                <div class="line"></div>
+            </nav>
+            <aside>
+                <header>
+                    <div class="prompt">
+                        <label for="baris">Baris</label>
+                        <input id="baris" type="number" value="3">
+                    </div>
+                    <p class="ordo-operator">x</p>
+                    <div class="prompt">
+                        <label for="kolom">Kolom</label>
+                        <input id="kolom" type="number" value="3">
+                    </div>
+                    <button class="set-ordo">Set Ordo</button>
+                    <div class="v-line"></div>
+                </header>
+                <div class="content">
+                    <div class="row">
+                        <div class="matrix-box matrix-A">
+                            <label for="">Matrix A</label>
+                            <div class="matrix-input"></div>
+                        </div>
+                        <div class="used-operator">
+                            <p>+</p>
+                        </div>
+                        <div class="matrix-box matrix-B">
+                            <label for="">Matrix B</label>
+                            <div class="matrix-input"></div>
+                        </div>
+                    </div>
+                    <div class="send-btn">
+                        <button class="execute">Lihat Hasil</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="card result">
+            <div class="close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+            </div>
+            <div class="matrix-box matrix-C">
+                <label for="">Hasil</label>
+                <div class="matrix-input"></div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

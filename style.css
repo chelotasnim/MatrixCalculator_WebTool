@@ -1,0 +1,379 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(205, 110, 45), rgb(231, 164, 76));
+    filter: hue-rotate(180deg);
+    overflow: hidden;
+}
+
+.page .big-header {
+    position: absolute;
+    bottom: -100%;
+    font-size: 200px;
+    color: rgb(255, 255, 255);
+    transition: .5s;
+}
+
+.page .big-header.used {
+    bottom: 48px;
+}
+
+.page img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100px);
+    object-fit: cover;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    z-index: 10000;
+    cursor: pointer;
+}
+
+@keyframes bigBall {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(12) translateY(-12);
+    }
+    50% {
+        transform: translateX(-8px) translateY(-8px);
+    }
+    75% {
+        transform: translateX(0) translateY(8px);
+    }
+}
+
+.card {
+    position: absolute;
+    display: flex;
+    border-radius: 20px;
+    min-height: 400px;
+    min-width: 400px;
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    transition: .5s;
+    z-index: 10;
+}
+
+nav {
+    position: relative;
+}
+
+.operator-box {
+    position: relative;
+    padding: 32px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.operator-get {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.operator-get::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: -22px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 2px;
+    background: rgb(255, 255, 255);
+}
+
+.ghost-circle {
+    border: 2px solid rgba(255, 255, 255, .3);
+}
+
+.ghost-circle::after {
+    background: rgba(255, 255, 255, .3);
+}
+
+.line {
+    position: absolute;
+    right: 0;
+    width: 1px;
+    background: rgb(255, 255, 255);
+}
+
+aside {
+    width: 100%;
+    padding: 32px;
+}
+
+aside header {
+    position: relative;
+    display: flex;
+    padding-bottom: 24px;
+    align-items: center;
+    gap: 16px;
+}
+
+.content {
+    max-height: 405px;
+    overflow-y: scroll;
+}
+
+.content.det {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content::-webkit-scrollbar {
+    width: 0;
+}
+
+.prompt {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.prompt.hide {
+    display: none;
+}
+
+.card label {
+    width: max-content;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+}
+
+.card input {
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    box-shadow:  0 0 5px rgba(0, 0, 0, .025);
+    border-radius: 8px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.card input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.ordo-operator, .used-operator {
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}
+
+.used-operator {
+    font-size: 20px;
+}
+
+.used-operator.hide {
+    display: none;
+}
+
+.v-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+}
+
+button {
+    margin-top: 16px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    box-shadow:  0 0 5px rgba(0, 0, 0, .025);
+    border-radius: 8px;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.row {
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.matrix-input {
+    display: grid;
+    margin-top: 8px;
+    gap: 3px;
+}
+
+.matrix-B.hide {
+    display: none;
+}
+
+.result {
+    display: flex;
+    width: max-content;
+    height: max-content;
+    min-height: 250px;
+    min-width: 250px;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+
+.result .matrix-input.det {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.result label {
+    font-size: 16px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.close-btn svg {
+    width: 25px;
+    height: 25px;
+    fill: rgb(255, 255, 255);
+}
+
+.result input.hide {
+    display: none;
+}
+
+.result input.det {
+    min-width: 130px;
+    min-height: 130px;
+    font-size: 48px;
+}
+
+@media(max-width: 1285px) {
+    .page .big-header {
+        font-size: 125px;
+    }
+    .page .big-header.used {
+        bottom: 72px;
+    }
+}
+
+@media(max-width: 855px) {
+    .page .big-header {
+        font-size: 72px;
+    }
+    .page .big-header.used {
+        bottom: 54px;
+    }
+    .page img {
+        transform: translateY(150px);
+    }
+}
+
+@media(max-width: 755px) {
+    .card {
+        align-items: center;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .card input, .card.result input {
+        font-size: 12px;
+    }
+
+    .result input.det {
+        font-size: 48px;
+    }
+}
+
+@media(max-width: 500px) {
+    .operator-get {
+        top: 22px;
+    }
+    .card {
+        left: 16px;
+        right: 16px;
+        padding: 16px;
+        min-width: 300px;
+        justify-content: center;
+    }
+    aside {
+        min-width: 261px;
+        padding: 16px;
+    }
+    .operator-box {
+        padding: 24px;
+    }
+    .operator-get::after {
+        right: -15px;
+        width: 15px;
+    }
+    .page .big-header {
+        font-size: 48px;
+    }
+    .page .big-header.used {
+        bottom: 9%;
+    }
+}
+
+@media(max-width: 700px) {
+    .page img {
+        transform: translateY(145px);
+    }
+    .page .big-header.used {
+        bottom: 6%;
+    }
+}
+
+@media(max-height: 400px) {
+    .toggle-btn {
+        display: none;
+    }
+    .page .big-header {
+        display: none;
+    }
+}
